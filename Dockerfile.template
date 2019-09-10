@@ -1,0 +1,26 @@
+FROM alpine:3.9
+
+ENV LUA_VERSION %%LUA_VERSION%%
+ENV LUAROCKS_VERSION %%LUAROCKS_VERSION%%
+
+RUN \
+    apk add --no-cache \
+    lua$LUA_VERSION-dev
+
+RUN \
+    buildDeps="\
+    alpine-sdk \
+    unzip \
+    " && \
+    apk add --no-cache $buildDeps && \
+    curl -O -L https://luarocks.org/releases/luarocks-$LUAROCKS_VERSION.tar.gz && \
+    tar zxpf luarocks-$LUAROCKS_VERSION.tar.gz && \
+    cd luarocks-$LUAROCKS_VERSION && \
+    ./configure && \
+    make build && \
+    make install && \
+    cd ../ && \
+    rm -rf luarocks-$LUAROCKS_VERSION* && \
+    apk del $buildDeps
+
+ENTRYPOINT ["lua5.3"]
