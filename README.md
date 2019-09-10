@@ -1,4 +1,4 @@
-# docker-lua
+# docker-lua [![Travis (.org) branch](https://img.shields.io/travis/rbreslow/docker-lua/master)](https://travis-ci.org/rbreslow/docker-lua) [![Docker Repository on Quay](https://quay.io/repository/rbreslow/lua/status "Docker Repository on Quay")](https://quay.io/repository/rbreslow/lua)
 
 This repository contains a templated `Dockerfile` for image variants of the [Lua](https://www.lua.org) programming language, as well as the [LuaRocks](https://luarocks.org) package manager.
 
