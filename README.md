@@ -6,7 +6,7 @@ This repository contains a templated `Dockerfile` for image variants of the [Lua
 
 ### Template Variables
 
-- `VERSION` - Lua version
+- `LUA_VERSION` - Lua version
 - `LUAROCKS_VERSION` - LuaRocks version
 
 ### Testing
