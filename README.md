@@ -1,4 +1,4 @@
-# docker-lua [![Travis (.org) branch](https://img.shields.io/travis/rbreslow/docker-lua/master)](https://travis-ci.org/rbreslow/docker-lua) [![Docker Repository on Quay](https://quay.io/repository/rbreslow/lua/status "Docker Repository on Quay")](https://quay.io/repository/rbreslow/lua)
+# docker-lua [![CI](https://github.com/rbreslow/docker-lua/workflows/CI/badge.svg?branch=master)](https://github.com/rbreslow/docker-lua/actions?query=workflow%3ACI)
 
 This repository contains a templated `Dockerfile` for image variants of the [Lua](https://www.lua.org) programming language, as well as the [LuaRocks](https://luarocks.org) package manager.
 
@@ -14,5 +14,5 @@ This repository contains a templated `Dockerfile` for image variants of the [Lua
 An example of how to use `cibuild` to build and test an image:
 
 ```bash
-$ CI=1 LUA_VERSION=5.3 LUAROCKS_VERSION=3.2.0 ./scripts/cibuild
+$ CI=1 LUA_VERSION=5.3 LUAROCKS_VERSION=3.3.1 VARIANT=alpine ./scripts/cibuild
 ```

@@ -15,16 +15,16 @@ Build container images from templates.
 "
 }
 
-if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
-    if [ "${1:-}" = "--help" ]; then
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    if [[ "${1:-}" == "--help" ]]; then
         usage
     else
         sed -e "s/%%LUA_VERSION%%/${LUA_VERSION}/" \
             -e "s/%%LUAROCKS_VERSION%%/${LUAROCKS_VERSION}/" \
-            "Dockerfile.template" >Dockerfile
+            "Dockerfile-${VARIANT}.template" >Dockerfile
 
         docker \
-            build -t "quay.io/rbreslow/lua:${LUA_VERSION}" .
+            build -t "quay.io/rbreslow/lua:${LUA_VERSION}-${VARIANT}" .
 
         ./scripts/test
 
