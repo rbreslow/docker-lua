@@ -1,6 +1,11 @@
 #!/bin/bash
 
 set -e
+
+if [[ -n "${CI}" ]]; then
+    set -x
+fi
+
 set -u
 
 function usage() {
@@ -10,14 +15,14 @@ Publish container images built from templates.
 "
 }
 
-if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
-    if [ "${1:-}" = "--help" ]; then
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    if [[ "${1:-}" == "--help" ]]; then
         usage
     else
         docker \
             login -u "${QUAY_USER}" -p "${QUAY_PASSWORD}" quay.io
 
         docker \
-            push "quay.io/rbreslow/lua:${LUA_VERSION}"
+            push "quay.io/rbreslow/lua:${LUA_VERSION}-${VARIANT}"
     fi
 fi

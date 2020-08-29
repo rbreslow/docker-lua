@@ -27,4 +27,4 @@ RUN \
     rm -rf luarocks-$LUAROCKS_VERSION* && \
     apk del $buildDeps
 
-ENTRYPOINT ["/usr/bin/lua5.3"]
+ENTRYPOINT ["/usr/bin/lua%%LUA_VERSION%%"]

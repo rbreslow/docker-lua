@@ -15,14 +15,14 @@ Test container images built from templates.
 "
 }
 
-if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
-    if [ "${1:-}" = "--help" ]; then
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    if [[ "${1:-}" == "--help" ]]; then
         usage
     else
         docker run --rm -it \
-            "quay.io/rbreslow/lua:${LUA_VERSION}" -v
+            "quay.io/rbreslow/lua:${LUA_VERSION}-${VARIANT}" -v
 
         docker run --rm -it --entrypoint luarocks \
-            "quay.io/rbreslow/lua:${LUA_VERSION}" --version
+            "quay.io/rbreslow/lua:${LUA_VERSION}-${VARIANT}" --version
     fi
 fi
